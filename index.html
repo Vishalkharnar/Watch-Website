@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#070708" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+    <title>MILLE-X | High-Performance Mechanical Watchmaking</title>
+    <script>
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
+
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description"
+        content="Explore MILLE-X, the luxury watch brand representing the pinnacle of mechanical engineering, carbon materials, and tourbillon technology. Inspired by avant-garde racing design.">
+    <meta name="keywords"
+        content="luxury watches, skeleton watch, tourbillon, carbon TPT, mechanical watchmaking, luxury horology">
+    <meta name="author" content="Mille-X">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- 3. STICKY TRANSPARENT HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo" id="header-logo">
+                Mille-X<span class="logo-dot"></span>
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="nav" id="desktop-nav">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#collections" class="nav-link">Collections</a></li>
+                <li><a href="#exploded" class="nav-link">Engineering</a></li>
+                <li><a href="#brand-story" class="nav-link">Brand Story</a></li>
+                <li><a href="#partners" class="nav-link">Ambassadors</a></li>
+                <li><a href="#showcase" class="nav-link">Showcase</a></li>
+            </nav>
+
+            <!-- Header Action Icons -->
+            <div class="header-actions">
+                <!-- Buy Watch CTA -->
+                <a href="watch-details.html" class="btn btn-primary header-cta" id="buy-cta-header">Buy Watch</a>
+
+                <!-- Search Toggle -->
+                <button class="icon-btn" id="search-btn" aria-label="Search Collection">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+
+                <!-- Dark / Light Theme Toggle -->
+                <button class="icon-btn theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24">
+                        <path class="moon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="none"
+                            stroke="currentColor" />
+                        <path class="sun"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"
+                            fill="none" stroke="currentColor" />
+                    </svg>
+                </button>
+
+                <!-- Mobile Hamburger Button -->
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-menu-overlay">
+        <ul class="mobile-menu">
+            <li><a href="#hero" class="nav-link">Home</a></li>
+            <li><a href="#collections" class="nav-link">Collections</a></li>
+            <li><a href="#exploded" class="nav-link">Engineering</a></li>
+            <li><a href="#brand-story" class="nav-link">Brand Story</a></li>
+            <li><a href="#partners" class="nav-link">Ambassadors</a></li>
+            <li><a href="#showcase" class="nav-link">Showcase</a></li>
+            <li style="margin-top: 25px;"><a href="watch-details.html" class="btn btn-primary"
+                    style="width: 100%; text-align: center; display: block; padding: 15px 0;">Buy Watch</a></li>
+        </ul>
+        <div class="footer-newsletter">
+            <h4 class="footer-col-title">Newsletter</h4>
+            <form class="newsletter-form">
+                <input type="email" placeholder="ENTER YOUR EMAIL" class="newsletter-input" required>
+                <button type="submit" class="newsletter-submit" aria-label="Subscribe">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Search Modal Overlay -->
+    <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
+        <button class="icon-btn search-close-btn" id="close-search" aria-label="Close search">
+            <svg viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div class="search-modal-inner">
+            <h3 class="search-modal-title">Search MILLE-X</h3>
+            <input type="text" id="search-input" placeholder="TYPE WATCH MODEL OR MATERIAL..."
+                class="search-modal-input" autocomplete="off">
+            <p class="search-modal-hint">Press Enter to search &nbsp;/&nbsp; Esc to close</p>
+        </div>
+    </div>
+
+    <!-- 4. HERO CAROUSEL BANNER - 4 Premium Slides with Animations -->
+    <section class="hero" id="hero">
+        <!-- Hero Carousel Container -->
+        <div class="hero-carousel" id="hero-carousel">
+
+            <!-- SLIDE 1: Video Background - YouTube Premium Video -->
+            <div class="hero-slide hero-slide-active" data-slide-index="0">
+                <div class="hero-slide-background">
+                    <video class="hero-slide-iframe" src="./assets/video.mp4" autoplay loop muted playsinline style="border: none; width: 100%; height: 100%; object-fit: cover;"></video>
+                    <div class="hero-slide-overlay"></div>
+                </div>
+                <div class="container hero-container">
+                    <div class="hero-content hero-content-animated">
+                        <div class="hero-badge">
+                            <span class="hero-badge-dot"></span>
+                            Caliber MX-74 Tourbillon
+                        </div>
+                        <h1 class="hero-title">
+                            The Art Of <span>Mechanics</span>
+                        </h1>
+                        <p class="hero-description">
+                            A racing machine on the wrist. Radical engineering, extreme lightweight composites, and
+                            high-complication tourbillons crafted for high performance.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="watch-details.html" class="btn btn-primary">Buy Watch</a>
+                            <a href="#exploded" class="btn">Technical specs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Unsplash Premium Watch Image -->
+            <div class="hero-slide" data-slide-index="1">
+                <div class="hero-slide-background">
+                    <div class="hero-slide-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1920&q=80&blend=https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1920&q=80&blend_mode=darken'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="hero-slide-overlay"></div>
+                </div>
+                <div class="container hero-container">
+                    <div class="hero-content hero-content-animated">
+                        <div class="hero-badge">
+                            <span class="hero-badge-dot" style="background-color: var(--accent-gold)"></span>
+                            Carbon TPT® Composite
+                        </div>
+                        <h1 class="hero-title">
+                            Engineered For <span>Excellence</span>
+                        </h1>
+                        <p class="hero-description">
+                            Crafted with advanced carbon materials and precision manufacturing. Every component designed
+                            for maximum performance and minimal weight.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="watch-details.html" class="btn btn-primary">Buy Watch</a>
+                            <a href="#exploded" class="btn">View Engineering</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Unsplash Mechanical Precision Image -->
+            <div class="hero-slide" data-slide-index="2">
+                <div class="hero-slide-background">
+                    <div class="hero-slide-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=1920&q=80'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="hero-slide-overlay"></div>
+                </div>
+                <div class="container hero-container">
+                    <div class="hero-content hero-content-animated">
+                        <div class="hero-badge">
+                            <span class="hero-badge-dot" style="background-color: var(--accent-red)"></span>
+                            Haute Horology
+                        </div>
+                        <h1 class="hero-title">
+                            Timeless <span>Precision</span>
+                        </h1>
+                        <p class="hero-description">
+                            Mechanical mastery beyond compare. Our tourbillon watches represent the pinnacle of
+                            horological achievement and artistic craftsmanship.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="watch-details.html" class="btn btn-primary">Buy Watch</a>
+                            <a href="#exploded" class="btn">Caliber Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Unsplash Luxury Lifestyle Image -->
+            <div class="hero-slide" data-slide-index="3">
+                <div class="hero-slide-background">
+                    <div class="hero-slide-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1920&q=80'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="hero-slide-overlay"></div>
+                </div>
+                <div class="container hero-container">
+                    <div class="hero-content hero-content-animated">
+                        <div class="hero-badge">
+                            <span class="hero-badge-dot" style="background-color: var(--accent-orange)"></span>
+                            Limited Edition
+                        </div>
+                        <h1 class="hero-title">
+                            Exclusive <span>Heritage</span>
+                        </h1>
+                        <p class="hero-description">
+                            Handcrafted luxury watches with limited production runs. Each timepiece is numbered and
+                            comes with a certificate of authenticity.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="watch-details.html" class="btn btn-primary">Buy Watch</a>
+                            <a href="#exploded" class="btn">Request Waitlist</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- 5. FEATURED COLLECTIONS SECTION -->
+    <section class="collections section-padding" id="collections">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">High-tech Composites</span>
+                <h2 class="section-title">The Collections</h2>
+            </div>
+
+            <div class="collections-grid">
+                <!-- Card 1: Racing -->
+                <article class="collection-card">
+                    <div class="collection-header">
+                        <span class="collection-tag">Racing / Aerodynamics</span>
+                        <span class="collection-num">01</span>
+                    </div>
+                    <div class="collection-image-wrapper">
+                        <img src="assets/collection_racing.png" alt="Mille-X Racing Chronograph Watch"
+                            class="collection-card-img" loading="lazy">
+                    </div>
+                    <div class="collection-footer">
+                        <h3 class="collection-title">MX-Racing Carbon</h3>
+
+                        <!-- Hover specifications reveal -->
+                        <div class="collection-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Material</span>
+                                <span class="spec-val">Carbon TPT®</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Caliber</span>
+                                <span class="spec-val">RM50-03 Split-Sec</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Weight</span>
+                                <span class="spec-val">40g total</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2: Lifestyle -->
+                <article class="collection-card">
+                    <div class="collection-header">
+                        <span class="collection-tag">Lifestyle / Lifestyle Sport</span>
+                        <span class="collection-num">02</span>
+                    </div>
+                    <div class="collection-image-wrapper">
+                        <img src="assets/collection_lifestyle.png" alt="Mille-X Lifestyle Ceramic Watch"
+                            class="collection-card-img" loading="lazy">
+                    </div>
+                    <div class="collection-footer">
+                        <h3 class="collection-title">MX-Lifestyle White</h3>
+
+                        <!-- Hover specifications reveal -->
+                        <div class="collection-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Material</span>
+                                <span class="spec-val">ATZ White Ceramic</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Caliber</span>
+                                <span class="spec-val">RM037 Skeleton</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Reserve</span>
+                                <span class="spec-val">50 Hours</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3: Tourbillon -->
+                <article class="collection-card">
+                    <div class="collection-header">
+                        <span class="collection-tag">Haute Horology / Mechanical Art</span>
+                        <span class="collection-num">03</span>
+                    </div>
+                    <div class="collection-image-wrapper">
+                        <img src="assets/collection_tourbillon.png" alt="Mille-X Sapphire Tourbillon Watch"
+                            class="collection-card-img" loading="lazy">
+                    </div>
+                    <div class="collection-footer">
+                        <h3 class="collection-title">MX-Sapphire Tourbillon</h3>
+
+                        <!-- Hover specifications reveal -->
+                        <div class="collection-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Material</span>
+                                <span class="spec-val">Full Sapphire Crystal</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Caliber</span>
+                                <span class="spec-val">RM56-02 Manual Winding</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Complication</span>
+                                <span class="spec-val">Cable Suspended Tourbillon</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. EXPLODED WATCH VIEWER SECTION (BONUS: 360° / MECHANICAL EXPLOSION) -->
+    <section class="exploded-section section-padding" id="exploded">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 80px;">
+                <span class="section-tag">Extreme Engineering</span>
+                <h2 class="section-title">Mechanical Components</h2>
+            </div>
+            <div class="exploded-grid">
+                <!-- Point 1: Bezel -->
+                <div class="exploded-row" id="exploded-row-bezel">
+                    <div class="exploded-image-col">
+                        <div class="exploded-parallax-wrapper">
+                            <img class="exploded-parallax-img"
+                                src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=800"
+                                alt="Carbon TPT Bezel" />
+                        </div>
+                    </div>
+                    <div class="exploded-content-col">
+                        <span class="exploded-info-num">01.</span>
+                        <h3 class="exploded-info-title">Carbon TPT® Bezel</h3>
+                        <p class="exploded-info-desc">
+                            The outer bezel is milled from sheets of carbon fibers obtained by separating thread
+                            systems. Alternating layers are woven at a 45° angle, then heated to 120°C in an autoclave
+                            to build exceptional shock resistance.
+                        </p>
+                        <div class="exploded-info-table">
+                            <div class="spec-row"><span class="spec-label">Thickness</span><span class="spec-val">1.40
+                                    mm</span></div>
+                            <div class="spec-row"><span class="spec-label">Screws</span><span class="spec-val">Titanium
+                                    Grade 5 spline</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Point 2: Dial -->
+                <div class="exploded-row" id="exploded-row-dial">
+                    <div class="exploded-image-col">
+                        <div class="exploded-parallax-wrapper">
+                            <img class="exploded-parallax-img"
+                                src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800"
+                                alt="Sapphire Dial Plate" />
+                        </div>
+                    </div>
+                    <div class="exploded-content-col">
+                        <span class="exploded-info-num">02.</span>
+                        <h3 class="exploded-info-title">Sapphire Dial Plate</h3>
+                        <p class="exploded-info-desc">
+                            Cut from a single crystal block, this dial is treated with double-sided anti-reflective
+                            coatings. The numbers and sub-dials are printed using specialized industrial techniques to
+                            sit hovering above the movements.
+                        </p>
+                        <div class="exploded-info-table">
+                            <div class="spec-row"><span class="spec-label">Material</span><span
+                                    class="spec-val">Synthetic Sapphire</span></div>
+                            <div class="spec-row"><span class="spec-label">Hardness</span><span class="spec-val">9 Mohs
+                                    scale</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Point 3: Movement -->
+                <div class="exploded-row" id="exploded-row-gears">
+                    <div class="exploded-image-col">
+                        <div class="exploded-parallax-wrapper">
+                            <img class="exploded-parallax-img"
+                                src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?q=80&w=800"
+                                alt="Caliber MX-01 Movement" />
+                        </div>
+                    </div>
+                    <div class="exploded-content-col">
+                        <span class="exploded-info-num">03.</span>
+                        <h3 class="exploded-info-title">Caliber MX-01 Movement</h3>
+                        <p class="exploded-info-desc">
+                            The heartbeat. A manual-winding skeleton tourbillon caliber with hours, minutes, and
+                            power-reserve indicator. Features grade 5 titanium plates and bridges with black PVD
+                            finishing, keeping the entire caliber under 7 grams.
+                        </p>
+                        <div class="exploded-info-table">
+                            <div class="spec-row"><span class="spec-label">Jewels</span><span class="spec-val">38
+                                    Rubies</span></div>
+                            <div class="spec-row"><span class="spec-label">Power Reserve</span><span class="spec-val">70
+                                    Hours</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Point 4: Caseback -->
+                <div class="exploded-row" id="exploded-row-caseback">
+                    <div class="exploded-image-col">
+                        <div class="exploded-parallax-wrapper">
+                            <img class="exploded-parallax-img"
+                                src="https://images.lacotedesmontres.com/mesIMG/imgStd/91013.jpg"
+                                alt="TPT Caseback Chassis" />
+                        </div>
+                    </div>
+                    <div class="exploded-content-col">
+                        <span class="exploded-info-num">04.</span>
+                        <h3 class="exploded-info-title">TPT Caseback Chassis</h3>
+                        <p class="exploded-info-desc">
+                            The base anchor. Engineered with spline screws to hold the front bezel and dial plate in
+                            hermetic tension. Fitted with Nitrile O-ring seals to ensure water resistance up to 50
+                            meters.
+                        </p>
+                        <div class="exploded-info-table">
+                            <div class="spec-row"><span class="spec-label">Seals</span><span class="spec-val">Double
+                                    Nitrile O-ring</span></div>
+                            <div class="spec-row"><span class="spec-label">Water Resistance</span><span
+                                    class="spec-val">50m / 5 ATM</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. BRAND STORY SECTION -->
+    <section class="brand-story section-padding" id="brand-story">
+        <div class="container">
+            <div class="brand-story-grid">
+                <!-- Left: Luxury Craftsmanship Image -->
+                <div class="brand-story-image-panel">
+                    <img src="assets/brand_story.png" alt="Mille-X Watchmaker craftsmanship workshop"
+                        class="brand-story-img" loading="lazy">
+                </div>
+
+                <!-- Right: Description and stats -->
+                <div class="brand-story-info">
+                    <div class="section-header" style="margin-bottom: 0;">
+                        <span class="section-tag">Swiss Craftsmanship</span>
+                        <h2 class="section-title">The Philosophy</h2>
+                    </div>
+                    <p class="brand-story-text">
+                        MILLE-X was founded on a singular vision: to apply the materials, methods, and performance of
+                        Formula 1 racing cars and aeronautical craft to the micro-engineering of haute horology. Every
+                        timepiece is a marvel of mechanics, stripping away non-essential weight while optimizing
+                        structure and precision.
+                    </p>
+
+                    <!-- Animated Statistics -->
+                    <div class="brand-story-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="10000">0</div>
+                            <div class="stat-label">Hours of R&D</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="32">0<span>g</span></div>
+                            <div class="stat-label">Total Watch Weight</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="70">0<span>h</span></div>
+                            <div class="stat-label">Power Reserve</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="50">0<span>m</span></div>
+                            <div class="stat-label">Pressure resistance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FEATURED PARTNERS / AMBASSADORS SECTION -->
+    <section class="partners section-padding" id="partners">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Tested in Extreme Environments</span>
+                <h2 class="section-title">The Ambassadors</h2>
+            </div>
+
+            <div class="partners-grid">
+                <!-- Ambassador 1: Motorsport -->
+                <div class="partner-card">
+                    <div class="partner-bg"></div>
+                    <img class="partner-image"
+                        src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800"
+                        alt="Formula 1 Racing Track" loading="lazy" />
+                    <div class="partner-overlay">
+                        <span class="partner-tag">Formula 1 Champion</span>
+                        <h3 class="partner-name">Charles Leclerc</h3>
+                        <p class="partner-details">
+                            Testing the boundaries of centrifugal G-forces. Charles Leclerc wears the lightweight
+                            split-seconds tourbillon chronograph in carbon TPT during races.
+                        </p>
+                        <div>
+                            <span class="partner-badge-watch">MX-50 Chronograph</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ambassador 2: Tennis -->
+                <div class="partner-card">
+                    <div class="partner-bg"></div>
+                    <img class="partner-image"
+                        src="https://i.pinimg.com/736x/71/e1/e7/71e1e797c93279139853e8234bd4896a.jpg"
+                        alt="Tennis Stadium Court Action" loading="lazy" />
+                    <div class="partner-overlay">
+                        <span class="partner-tag">Tennis Legend</span>
+                        <h3 class="partner-name">Rafael Nadal</h3>
+                        <p class="partner-details">
+                            Subjected to 10,000 Gs of accelerational shock on courts. Rafael Nadal tests our tourbillon
+                            technology while playing, setting records in watchmaking safety.
+                        </p>
+                        <div>
+                            <span class="partner-badge-watch">MX-27 Nadal Tourbillon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ambassador 3: Tennis -->
+                <div class="partner-card">
+                    <div class="partner-bg"></div>
+                    <img class="partner-image"
+                        src="https://www.motorsportweek.com/wp-content/uploads/2026/03/Lando-Norris-F1-Bahrain-Testing.webp"
+                        alt="Tennis Stadium Court Action" loading="lazy" />
+                    <div class="partner-overlay">
+                        <span class="partner-tag">RACE WINNER</span>
+                        <h3 class="partner-name">LANDO NORRIS</h3>
+                        <p class="partner-details">
+                            Pushing every limit of speed and precision.
+                            Lando Norris wears the ultra-lightweight tourbillon engineered to perform under extreme
+                            racing conditions..
+                        </p>
+                        <div>
+                            <span class="partner-badge-watch">RM 67-02 AUTOMATIC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. WATCH SHOWCASE SECTION (SLIDER CAROUSEL) -->
+    <section class="showcase section-padding" id="showcase">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Pure Mechanics</span>
+                <h2 class="section-title">Showcase Gallery</h2>
+            </div>
+
+            <!-- Slider container -->
+            <div class="showcase-slider-container">
+                <div class="showcase-wrapper" id="showcase-wrapper">
+
+                    <!-- Slide 1: Carbon Chronograph -->
+                    <div class="showcase-slide">
+                        <div class="showcase-visual">
+                            <img src="assets/collection_racing.png" alt="MX-Carbon Chronograph Watch details"
+                                class="showcase-img">
+                        </div>
+                        <div class="showcase-info">
+                            <h3 class="showcase-model">MX-50 Carbon Chrono</h3>
+                            <p class="showcase-desc">
+                                Engineered specifically for motorsport racing teams. A split-seconds manual chronograph
+                                using lightweight carbon laminates. It features a torsion-free grade 5 titanium
+                                skeletonized bridges system.
+                            </p>
+                            <div class="showcase-specs-list">
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Case diameter</span>
+                                    <span class="showcase-spec-val">44.50 mm x 49.65 mm</span>
+                                </div>
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Weight</span>
+                                    <span class="showcase-spec-val">Just 40 grams (strap included)</span>
+                                </div>
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Strap</span>
+                                    <span class="showcase-spec-val">Elastic sports polyurethane</span>
+                                </div>
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Baseplate</span>
+                                    <span class="showcase-spec-val">Titanium with carbon fiber</span>
+                                </div>
+                            </div>
+                            <div class="showcase-actions" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <a href="watch-details.html" class="btn btn-primary">Pre-order</a>
+                                <a href="#exploded" class="btn">Mechanical specs</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Ceramic Lifestyle -->
+                    <div class="showcase-slide">
+                        <div class="showcase-visual">
+                            <img src="assets/collection_lifestyle.png" alt="MX-White Ceramic Watch details"
+                                class="showcase-img">
+                        </div>
+                        <div class="showcase-info">
+                            <h3 class="showcase-model">MX-37 Ceramic Diamond</h3>
+                            <p class="showcase-desc">
+                                Blending modern ceramic hardness with delicate mechanical art. Built with high-alumina
+                                white ceramic bezels and diamond-set gold dials. Features an automatic flyback movement.
+                            </p>
+                            <div class="showcase-specs-list">
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Case diameter</span>
+                                    <span class="showcase-spec-val">34.40 mm x 52.60 mm</span>
+                                </div>
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Bezel Material</span>
+                                    <span class="showcase-spec-val">ATZ White Ceramic</span>
+                                </div>
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Caliber</span>
+                                    <span class="showcase-spec-val">Caliber CRMA1 Automatic</span>
+                                </div>
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Power Reserve</span>
+                                    <span class="showcase-spec-val">50 Hours</span>
+                                </div>
+                            </div>
+                            <div class="showcase-actions" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <a href="watch-details.html" class="btn btn-primary">Pre-order</a>
+                                <a href="#exploded" class="btn">Mechanical specs</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Sapphire Tourbillon -->
+                    <div class="showcase-slide">
+                        <div class="showcase-visual">
+                            <img src="assets/collection_tourbillon.png" alt="MX-Full Sapphire Watch details"
+                                class="showcase-img">
+                        </div>
+                        <div class="showcase-info">
+                            <h3 class="showcase-model">MX-56 Sapphire Cable</h3>
+                            <p class="showcase-desc">
+                                A completely transparent crystal case suspending the movement on micro-steel cables.
+                                Experience 360 degrees of visible internal gear rotations with absolute clarity. Only 10
+                                units worldwide.
+                            </p>
+                            <div class="showcase-specs-list">
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Case diameter</span>
+                                    <span class="showcase-spec-val">42.70 mm x 50.50 mm</span>
+                                </div>
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Case Material</span>
+                                    <span class="showcase-spec-val">Pure Polished Sapphire Block</span>
+                                </div>
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Cables Tension</span>
+                                    <span class="showcase-spec-val">Tensioned by 4 pulley wheels</span>
+                                </div>
+                                <div class="showcase-spec-item">
+                                    <span class="showcase-spec-label">Movement Weight</span>
+                                    <span class="showcase-spec-val">4.5 grams (Grade 5 Titanium)</span>
+                                </div>
+                            </div>
+                            <div class="showcase-actions" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <a href="watch-details.html" class="btn btn-primary">Pre-order</a>
+                                <a href="#exploded" class="btn">Mechanical specs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider controls -->
+            <div class="showcase-controls">
+                <div class="showcase-pagination" id="showcase-pagination">
+                    <span class="showcase-bullet active" data-index="0"></span>
+                    <span class="showcase-bullet" data-index="1"></span>
+                    <span class="showcase-bullet" data-index="2"></span>
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <button class="showcase-nav-btn" id="prev-slide" aria-label="Previous Watch">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button class="showcase-nav-btn" id="next-slide" aria-label="Next Watch">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. LATEST NEWS SECTION -->
+    <section class="news section-padding" id="news">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Events & innovation</span>
+                <h2 class="section-title">Latest Chronicles</h2>
+            </div>
+
+            <div class="news-grid">
+                <!-- Blog 1 -->
+                <article class="news-card">
+                    <div class="news-img-wrapper">
+                        <img class="news-card-img"
+                            src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=800"
+                            alt="Watch Mechanism Schematic" loading="lazy" />
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Engineering</span>
+                            <span class="news-date">May 24, 2026</span>
+                        </div>
+                        <h3 class="news-title">The physics of structural carbon fiber in modern horology</h3>
+                        <a href="#" class="news-link">
+                            Read article
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog 2 -->
+                <article class="news-card">
+                    <div class="news-img-wrapper">
+                        <img class="news-card-img"
+                            src="https://images.unsplash.com/photo-1555616635-be099f365735?q=80&w=800"
+                            alt="Formula 1 Monaco Circuit" loading="lazy" />
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Motorsport</span>
+                            <span class="news-date">April 18, 2026</span>
+                        </div>
+                        <h3 class="news-title">Charles Leclerc secures Monaco pole wearing the MX-50 split-seconds</h3>
+                        <a href="#" class="news-link">
+                            Read article
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog 3 -->
+                <article class="news-card">
+                    <div class="news-img-wrapper">
+                        <img class="news-card-img"
+                            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800"
+                            alt="Synthetic Sapphire Crystal Block" loading="lazy" />
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Craftsmanship</span>
+                            <span class="news-date">March 02, 2026</span>
+                        </div>
+                        <h3 class="news-title">Perfecting sapphire crystal cases: A 40-day diamond milling process</h3>
+                        <a href="#" class="news-link">
+                            Read article
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">Mille-X</a>
+                    <p class="footer-brand-desc">
+                        Redefining horological excellence by combining high-performance motorsports materials with Swiss
+                        watchmaking complexity.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.163c-.272-1.016-1.07-1.815-2.085-2.087C19.578 3.5 12 3.5 12 3.5s-7.578 0-9.414.576c-1.016.272-1.815 1.07-2.087 2.087C0 8.002 0 12 0 12s0 3.998.576 5.837c.272 1.016 1.07 1.815 2.087 2.087 1.836.576 9.414.576 9.414.576s7.578 0 9.414-.576c1.016-.272 1.815-1.07 2.087-2.087.576-1.839.576-5.837.576-5.837s0-3.998-.576-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="X / Twitter">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Collections Links -->
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Collections</h4>
+                    <ul class="footer-links-list">
+                        <li class="footer-link-item"><a href="#collections">Racing Series</a></li>
+                        <li class="footer-link-item"><a href="#collections">Lifestyle Sports</a></li>
+                        <li class="footer-link-item"><a href="#collections">Haute Horology</a></li>
+                        <li class="footer-link-item"><a href="#collections">Special Editions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Mille-X</h4>
+                    <ul class="footer-links-list">
+                        <li class="footer-link-item"><a href="#brand-story">The Philosophy</a></li>
+                        <li class="footer-link-item"><a href="#exploded">Materials Engineering</a></li>
+                        <li class="footer-link-item"><a href="#partners">Ambassadors</a></li>
+                        <li class="footer-link-item"><a href="#news">News & Events</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Subscription -->
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Newsletter</h4>
+                    <p class="footer-newsletter-desc">Subscribe to receive exclusive insights on new product releases
+                        and horology technology.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="ENTER YOUR EMAIL" class="newsletter-input"
+                            id="newsletter-email" required>
+                        <button type="submit" class="newsletter-submit" aria-label="Submit email">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+                    </form>
+                    <p class="newsletter-success-msg" id="newsletter-success">Thank you! You are now subscribed to the
+                        Mille-X inner circle.</p>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 MILLE-X S.A. All rights reserved. Handcrafted in Switzerland.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP and ScrollTrigger CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <!-- Custom JavaScript -->
+    <script src="main.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#070708" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+    <title>MILLE-X | MX-74 Tourbillon Details</title>
+    <script>
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
+
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description"
+        content="Discover the Mille-X MX-74 Tourbillon. Advanced racing composites, micro-cable suspension, and high-complication horology. Customize your configuration and order today.">
+    <meta name="keywords"
+        content="luxury watches, skeleton watch, tourbillon, carbon TPT, mechanical watchmaking, luxury horology">
+    <meta name="author" content="Mille-X">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 3. STICKY TRANSPARENT HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo" id="header-logo">
+                Mille-X<span class="logo-dot"></span>
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="nav" id="desktop-nav">
+                <li><a href="index.html#hero" class="nav-link">Home</a></li>
+                <li><a href="index.html#collections" class="nav-link">Collections</a></li>
+                <li><a href="index.html#exploded" class="nav-link">Engineering</a></li>
+                <li><a href="index.html#brand-story" class="nav-link">Brand Story</a></li>
+                <li><a href="index.html#partners" class="nav-link">Ambassadors</a></li>
+                <li><a href="index.html#showcase" class="nav-link">Showcase</a></li>
+            </nav>
+
+            <!-- Header Action Icons -->
+            <div class="header-actions">
+                <!-- Buy Watch CTA -->
+                <a href="watch-details.html" class="btn btn-primary header-cta" id="buy-cta-header">Buy Watch</a>
+
+                <!-- Search Toggle -->
+                <button class="icon-btn" id="search-btn" aria-label="Search Collection">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+
+                <!-- Dark / Light Theme Toggle -->
+                <button class="icon-btn theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24">
+                        <path class="moon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="none"
+                            stroke="currentColor" />
+                        <path class="sun"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"
+                            fill="none" stroke="currentColor" />
+                    </svg>
+                </button>
+
+                <!-- Mobile Hamburger Button -->
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-menu-overlay">
+        <ul class="mobile-menu">
+            <li><a href="index.html#hero" class="nav-link">Home</a></li>
+            <li><a href="index.html#collections" class="nav-link">Collections</a></li>
+            <li><a href="index.html#exploded" class="nav-link">Engineering</a></li>
+            <li><a href="index.html#brand-story" class="nav-link">Brand Story</a></li>
+            <li><a href="index.html#partners" class="nav-link">Ambassadors</a></li>
+            <li><a href="index.html#showcase" class="nav-link">Showcase</a></li>
+            <li style="margin-top: 25px;"><a href="watch-details.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block; padding: 15px 0;">Buy Watch</a></li>
+        </ul>
+        <div class="footer-newsletter">
+            <h4 class="footer-col-title">Newsletter</h4>
+            <form class="newsletter-form">
+                <input type="email" placeholder="ENTER YOUR EMAIL" class="newsletter-input" required>
+                <button type="submit" class="newsletter-submit" aria-label="Subscribe">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Search Modal Overlay -->
+    <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
+        <button class="icon-btn search-close-btn" id="close-search" aria-label="Close search">
+            <svg viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div class="search-modal-inner">
+            <h3 class="search-modal-title">Search MILLE-X</h3>
+            <input type="text" id="search-input" placeholder="TYPE WATCH MODEL OR MATERIAL..."
+                class="search-modal-input" autocomplete="off">
+            <p class="search-modal-hint">Press Enter to search &nbsp;/&nbsp; Esc to close</p>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAILS SECTION -->
+    <main class="details-main" style="padding-top: 120px;">
+        <section class="product-details section-padding">
+            <div class="container">
+                <div class="details-grid">
+                    
+                    <!-- Left Column: Visual Gallery -->
+                    <div class="details-visual">
+                        <div class="gallery-sticky-wrapper">
+                            <div class="main-image-container">
+                                <div class="glow-bg" id="strap-glow"></div>
+                                <img src="assets/hero_watch.png" alt="Mille-X MX-74 Tourbillon" class="product-main-img" id="main-product-image">
+                                <div class="strap-badge" id="active-strap-badge">Stealth Black</div>
+                            </div>
+                            
+                            <div class="thumbnail-gallery">
+                                <button class="thumb-btn active" data-img="assets/hero_watch.png" aria-label="Front View">
+                                    <img src="assets/hero_watch.png" alt="Front View Thumbnail">
+                                </button>
+                                <button class="thumb-btn" data-img="assets/collection_tourbillon.png" aria-label="Caliber Detail">
+                                    <img src="assets/collection_tourbillon.png" alt="Caliber Detail Thumbnail">
+                                </button>
+                                <button class="thumb-btn" data-img="assets/collection_racing.png" aria-label="Case View">
+                                    <img src="assets/collection_racing.png" alt="Case View Thumbnail">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Product Config & Info -->
+                    <div class="details-info">
+                        <div class="info-header">
+                            <span class="info-badge">Haute Horology • Limited Edition</span>
+                            <h1 class="product-title">MX-74 Tourbillon</h1>
+                            <div class="price-container">
+                                <span class="price-tag">$245,000</span>
+                                <span class="tax-info">Excl. Sales Tax / Duties</span>
+                            </div>
+                        </div>
+                        
+                        <p class="product-desc">
+                            A radical racing machine engineered for the wrist. The MX-74 Tourbillon features a lightweight 
+                            Grade 5 titanium movement suspended by tensioned steel cables, encased in a state-of-the-art 
+                            Carbon TPT® chassis. Designed to withstand extreme shocks up to 10,000 Gs.
+                        </p>
+                        
+                        <!-- Customization Strap Picker -->
+                        <div class="customizer-box">
+                            <h4 class="customizer-title">Select Strap Option</h4>
+                            <div class="strap-selector">
+                                <button class="strap-color-btn active" data-strap="black" data-color-hex="#070708" style="background-color: #1a1a1a;" aria-label="Stealth Black Strap"></button>
+                                <button class="strap-color-btn" data-strap="orange" data-color-hex="#ff5a00" style="background-color: #ff5a00;" aria-label="Racing Orange Strap"></button>
+                                <button class="strap-color-btn" data-strap="red" data-color-hex="#e03a3e" style="background-color: #e03a3e;" aria-label="Monaco Red Strap"></button>
+                                <button class="strap-color-btn" data-strap="gold" data-color-hex="#c5a880" style="background-color: #c5a880;" aria-label="Aureum Gold Strap"></button>
+                            </div>
+                            <p class="selected-config-text">Selected configuration: <strong id="selected-strap-name">Stealth Black</strong></p>
+                        </div>
+                        
+                        <!-- Order Section -->
+                        <div class="order-action-box">
+                            <div class="qty-selector">
+                                <button class="qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
+                                <span class="qty-val" id="qty-val">1</span>
+                                <button class="qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+                            </div>
+                            <button class="btn btn-primary btn-checkout" id="checkout-btn">Pre-Order Now</button>
+                        </div>
+                        
+                        <!-- Trust Badges -->
+                        <div class="trust-grid">
+                            <div class="trust-card">
+                                <svg viewBox="0 0 24 24" class="trust-icon">
+                                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="trust-text">Swiss Made Certified</span>
+                            </div>
+                            <div class="trust-card">
+                                <svg viewBox="0 0 24 24" class="trust-icon">
+                                    <path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="trust-text">3-Year Int. Warranty</span>
+                            </div>
+                            <div class="trust-card">
+                                <svg viewBox="0 0 24 24" class="trust-icon">
+                                    <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="trust-text">Secure Priority Shipping</span>
+                            </div>
+                        </div>
+
+                        <!-- Technical Specification Accordion -->
+                        <div class="spec-accordion">
+                            
+                            <!-- Accordion Item 1 -->
+                            <div class="accordion-item active">
+                                <button class="accordion-trigger" aria-expanded="true">
+                                    <span>CALIBER MX-74 MOVEMENT</span>
+                                    <span class="accordion-icon"></span>
+                                </button>
+                                <div class="accordion-panel" style="max-height: 500px; opacity: 1; padding: 20px 0;">
+                                    <div class="spec-table">
+                                        <div class="spec-row">
+                                            <span class="spec-label">Movement Type</span>
+                                            <span class="spec-value">Manual-winding suspended tourbillon</span>
+                                        </div>
+                                        <div class="spec-row">
+                                            <span class="spec-label">Power Reserve</span>
+                                            <span class="spec-value">Approx. 70 hours (±10%)</span>
+                                        </div>
+                                        <div class="spec-row">
+                                            <span class="spec-label">Frequency</span>
+                                            <span class="spec-value">21,600 vibrations/hour (3 Hz)</span>
+                                        </div>
+                                        <div class="spec-row">
+                                            <span class="spec-label">Tension Cables</span>
+                                            <span class="spec-value">4 braided steel cables with mini pulleys</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Accordion Item 2 -->
+                            <div class="accordion-item">
+                                <button class="accordion-trigger" aria-expanded="false">
+                                    <span>CARBON TPT® CASE STRUCTURE</span>
+                                    <span class="accordion-icon"></span>
+                                </button>
+                                <div class="accordion-panel">
+                                    <div class="spec-table">
+                                        <div class="spec-row">
+                                            <span class="spec-label">Case Dimension</span>
+                                            <span class="spec-value">44.50 mm x 49.65 mm x 16.15 mm</span>
+                                        </div>
+                                        <div class="spec-row">
+                                            <span class="spec-label">Material composition</span>
+                                            <span class="spec-value">Carbon TPT® (600 parallel layers)</span>
+                                        </div>
+                                        <div class="spec-row">
+                                            <span class="spec-label">Water Resistance</span>
+                                            <span class="spec-value">50 meters (5 ATM)</span>
+                                        </div>
+                                        <div class="spec-row">
+                                            <span class="spec-label">Screws</span>
+                                            <span class="spec-value">Grade 5 titanium spline screws</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Accordion Item 3 -->
+                            <div class="accordion-item">
+                                <button class="accordion-trigger" aria-expanded="false">
+                                    <span>DIAL, CRYSTAL & STRAP</span>
+                                    <span class="accordion-icon"></span>
+                                </button>
+                                <div class="accordion-panel">
+                                    <div class="spec-table">
+                                        <div class="spec-row">
+                                            <span class="spec-label">Dial layout</span>
+                                            <span class="spec-value">Skeletonized sapphire dial, thickness 0.40 mm</span>
+                                        </div>
+                                        <div class="spec-row">
+                                            <span class="spec-label">Crystal type</span>
+                                            <span class="spec-value">Domed sapphire with anti-reflective coating</span>
+                                        </div>
+                                        <div class="spec-row">
+                                            <span class="spec-label">Strap Material</span>
+                                            <span class="spec-value">Vented elastic rubber / Velcro options</span>
+                                        </div>
+                                        <div class="spec-row">
+                                            <span class="spec-label">Lume treatment</span>
+                                            <span class="spec-value">Super-LumiNova® on hands and markers</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 11. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">Mille-X</a>
+                    <p class="footer-brand-desc">
+                        Redefining horological excellence by combining high-performance motorsports materials with Swiss
+                        watchmaking complexity.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.163c-.272-1.016-1.07-1.815-2.085-2.087C19.578 3.5 12 3.5 12 3.5s-7.578 0-9.414.576c-1.016.272-1.815 1.07-2.087 2.087C0 8.002 0 12 0 12s0 3.998.576 5.837c.272 1.016 1.07 1.815 2.087 2.087 1.836.576 9.414.576 9.414.576s7.578 0 9.414-.576c1.016-.272 1.815-1.07 2.087-2.087.576-1.839.576-5.837.576-5.837s0-3.998-.576-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="X / Twitter">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Collections Links -->
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Collections</h4>
+                    <ul class="footer-links-list">
+                        <li class="footer-link-item"><a href="index.html#collections">Racing Series</a></li>
+                        <li class="footer-link-item"><a href="index.html#collections">Lifestyle Sports</a></li>
+                        <li class="footer-link-item"><a href="index.html#collections">Haute Horology</a></li>
+                        <li class="footer-link-item"><a href="index.html#collections">Special Editions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Mille-X</h4>
+                    <ul class="footer-links-list">
+                        <li class="footer-link-item"><a href="index.html#brand-story">The Philosophy</a></li>
+                        <li class="footer-link-item"><a href="index.html#exploded">Materials Engineering</a></li>
+                        <li class="footer-link-item"><a href="index.html#partners">Ambassadors</a></li>
+                        <li class="footer-link-item"><a href="index.html#news">News & Events</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Subscription -->
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Newsletter</h4>
+                    <p class="footer-newsletter-desc">Subscribe to receive exclusive insights on new product releases
+                        and horology technology.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="ENTER YOUR EMAIL" class="newsletter-input"
+                            id="newsletter-email" required>
+                        <button type="submit" class="newsletter-submit" aria-label="Submit email">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+                    </form>
+                    <p class="newsletter-success-msg" id="newsletter-success">Thank you! You are now subscribed to the
+                        Mille-X inner circle.</p>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 MILLE-X S.A. All rights reserved. Handcrafted in Switzerland.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP and ScrollTrigger CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <!-- Custom JavaScript -->
+    <script src="main.js" defer></script>
+</body>
+
+</html>
