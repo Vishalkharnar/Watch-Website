@@ -381,9 +381,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Animation for all images
-        gsap.utils.toArray('img:not(.hero-slide-iframe):not(.partner-image)').forEach(img => {
+        gsap.utils.toArray('img:not(.hero-slide-iframe)').forEach(img => {
             gsap.from(img, {
-                scrollTrigger: { trigger: img, start: "top 85%" },
+                scrollTrigger: { trigger: img, start: "top 90%" },
                 y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
             });
         });
@@ -681,6 +681,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const newsletterEmail   = document.getElementById("newsletter-email");
     const newsletterSuccess = document.getElementById("newsletter-success");
 
+    // Exploded View Content Hover Sync
+    const infoBlocks = document.querySelectorAll(".exploded-info-block");
+    if (infoBlocks.length > 0 && explodedRows.length > 0) {
+        infoBlocks.forEach((block, index) => {
+            block.addEventListener("mouseenter", () => {
+                if (explodedRows[index]) {
+                    const img = explodedRows[index].querySelector(".exploded-parallax-img");
+                    if (img && hasGSAP) {
+                        gsap.to(img, { scale: 1.05, filter: "grayscale(0%) contrast(1.15) brightness(1)", duration: 0.4 });
+                    }
+                }
+            });
+            block.addEventListener("mouseleave", () => {
+                if (explodedRows[index]) {
+                    const img = explodedRows[index].querySelector(".exploded-parallax-img");
+                    if (img && hasGSAP) {
+                        gsap.to(img, { scale: 1, filter: "grayscale(10%) contrast(1.05) brightness(0.85)", duration: 0.4 });
+                    }
+                }
+            });
+        });
+    }
+
+
     if (newsletterForm && newsletterEmail && newsletterSuccess) {
         newsletterForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -785,6 +809,28 @@ document.addEventListener("DOMContentLoaded", () => {
                         });
                     } else {
                         strapGlow.style.background = `radial-gradient(circle, ${colorHex} 0%, transparent 70%)`;
+                    }
+                }
+
+                if (mainProductImg) {
+                    let filterStyle = "none";
+                    if (humanName.includes("Black")) {
+                        filterStyle = "grayscale(1)";
+                    } else if (humanName.includes("Orange")) {
+                        filterStyle = "none";
+                    } else if (humanName.includes("Red")) {
+                        filterStyle = "hue-rotate(-20deg) saturate(1.5)";
+                    } else if (humanName.includes("Gold")) {
+                        filterStyle = "hue-rotate(20deg) saturate(1.2) brightness(1.2)";
+                    }
+
+                    if (hasGSAP) {
+                        gsap.fromTo(mainProductImg, 
+                            { scale: 0.95, opacity: 0.8 }, 
+                            { filter: filterStyle, scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" }
+                        );
+                    } else {
+                        mainProductImg.style.filter = filterStyle;
                     }
                 }
             });

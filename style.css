@@ -240,8 +240,16 @@ img {
     width: 100%;
     padding: 30px 0;
     z-index: 1000;
-    transition: padding var(--transition-smooth), background-color var(--transition-smooth), border-bottom var(--transition-smooth);
+    background-color: transparent;
+    transition: background-color var(--transition-smooth), padding var(--transition-smooth);
     border-bottom: 1px solid transparent;
+}
+
+/* Force text to be white when header is transparent over dark hero slides */
+.header:not(.scrolled) .logo,
+.header:not(.scrolled) .nav-link,
+.header:not(.scrolled) .header-icon {
+    color: #ffffff;
 }
 
 .header.scrolled {
@@ -662,25 +670,26 @@ img {
     font-family: var(--font-heading);
     font-size: clamp(2.8rem, 7vw, 5.5rem);
     line-height: 1.05;
-    font-weight: 800;
     text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 800;
     letter-spacing: -1.5px;
 }
 
 .hero-title span {
     display: block;
     color: transparent;
-    -webkit-text-stroke: 1.2px var(--text-primary);
+    -webkit-text-stroke: 1.2px #ffffff;
     background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
     -webkit-background-clip: text;
     background-clip: text;
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.7;
-    max-width: 620px;
+    max-width: 650px;
 }
 
 .hero-actions {
@@ -1319,11 +1328,12 @@ img {
     font-size: 2.2rem;
     text-transform: uppercase;
     font-weight: 800;
+    color: #ffffff;
 }
 
 .partner-details {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
     max-width: 420px;
     max-height: 0;
@@ -2185,31 +2195,30 @@ img {
 
     .exploded-grid {
         grid-template-columns: 1fr;
-        gap: 0;
-        min-height: auto;
+        gap: 60px;
     }
 
-    .exploded-visual-container {
+    .exploded-row, .exploded-row:nth-child(even) {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .exploded-image-col {
+        height: 280px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .exploded-parallax-wrapper {
         position: relative;
+        height: 100%;
+        width: 100%;
         top: 0;
-        height: 300px;
-        margin-bottom: 30px;
     }
 
-    .exploded-stack {
-        width: 180px;
-        height: 270px;
-        transform: rotateX(50deg) rotateZ(-25deg) translateZ(-30px);
-    }
-
-    .exploded-info-scroll {
-        gap: 36px;
-        padding-bottom: 0;
-    }
-
-    .exploded-info-block {
-        opacity: 1;
-        transform: none;
+    .exploded-parallax-img {
+        opacity: 0.9;
+        filter: grayscale(0%) contrast(1.1) brightness(1);
     }
 
     .exploded-info-num {
@@ -2217,11 +2226,11 @@ img {
     }
 
     .exploded-info-title {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .exploded-info-desc {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     /* --- Brand Story --- */
@@ -2255,30 +2264,37 @@ img {
     /* --- Partners --- */
     .partners-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 24px;
     }
 
     .partner-card {
-        height: 320px;
+        height: 480px;
+    }
+
+    .partner-bg {
+        background: linear-gradient(to top, rgba(7, 7, 8, 0.98) 0%, rgba(7, 7, 8, 0.85) 50%, transparent 100%);
     }
 
     .partner-overlay {
-        padding: 24px;
+        padding: 30px 24px;
     }
 
     .partner-name {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
     }
 
     .partner-tag {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         letter-spacing: 2px;
     }
 
     /* Always show partner details on mobile */
     .partner-details {
-        max-height: 80px;
+        max-height: 150px;
         opacity: 1;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
     }
 
     /* --- Showcase Slider --- */
@@ -2389,15 +2405,15 @@ img {
     }
 
     .partner-card {
-        height: 340px;
+        height: 440px;
     }
 
     .partner-overlay {
-        padding: 18px;
+        padding: 24px 20px;
     }
 
     .partner-name {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     .mobile-menu .nav-link {
